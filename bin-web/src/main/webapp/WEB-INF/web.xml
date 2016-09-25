@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>bin-web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- HelloWorld配置DispatcherServlet -->
+  <servlet>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 配置SpringMVC配置文件的位置和名称 -->
+    <!--
+        实际上也可以不通过contextConfigLocation来配置SpringMVC的配置文件，而使用默认。
+        默认的配置文件为：/WEB-INF/<servlet-name>-servlet.xml ;eg:springDispatcherServlet-servlet.xml
+     -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:SpringContext/Spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
