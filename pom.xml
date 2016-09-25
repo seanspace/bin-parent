@@ -12,6 +12,7 @@
         <module>bin-core</module>
         <module>bin-web</module>
         <module>bin-redis</module>
+        <module>bin-config</module>
     </modules>
 
     <properties>
