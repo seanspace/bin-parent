@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bin-core</artifactId>
+    <artifactId>bin-redis</artifactId>
     <packaging>jar</packaging>
 
-    <name>bin-core</name>
+    <name>bin-redis</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -18,8 +18,21 @@
     </properties>
 
     <dependencies>
-
-
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.7.2</version>
+        </dependency>
     </dependencies>
 </project>
