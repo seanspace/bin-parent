@@ -12,8 +12,8 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         //连接本地的 Redis 服务
-        Jedis jedis = new Jedis("192.168.163.129",6379);
-        jedis.auth("123");
+        Jedis jedis = new Jedis("172.21.1.11",32379);
+//        jedis.auth("123");
         //查看服务是否运行
         long time1 = System.currentTimeMillis() ;
         logger.info("Server is running: " + jedis.ping());
@@ -21,9 +21,11 @@ public class HelloWorld {
         logger.info("redis:" + jedis.get("redis")) ;
         logger.info("times:" + (System.currentTimeMillis() - time1) + "ms");
 
-        jedis.hset("hset_test", "name", "xiaobin" );
-        jedis.hgetAll("hset_test");
+        logger.info("" + jedis.hset("hset_test", "name", "xiaobin"));
+        logger.info("" + jedis.expire("hset_test", 10));//10秒过期
+        logger.info("" + jedis.hgetAll("hset_test"));
         jedis.hexists("hset_test", "name");
-        jedis.hget("hset_test", "xiaobin");
+        String hset_test = jedis.hget("hset_test", "name");
+        logger.info(hset_test);
     }
 }
