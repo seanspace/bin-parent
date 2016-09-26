@@ -20,5 +20,10 @@ public class HelloWorld {
         logger.info("times:" + (System.currentTimeMillis() - time1) + "ms");
         logger.info("redis:" + jedis.get("redis")) ;
         logger.info("times:" + (System.currentTimeMillis() - time1) + "ms");
+
+        jedis.hset("hset_test", "name", "xiaobin" );
+        jedis.hgetAll("hset_test");
+        jedis.hexists("hset_test", "name");
+        jedis.hget("hset_test", "xiaobin");
     }
 }
