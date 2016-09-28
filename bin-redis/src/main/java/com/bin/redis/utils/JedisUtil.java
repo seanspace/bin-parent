@@ -28,4 +28,11 @@ public class JedisUtil {
         
         return jedis;
     }
+
+    public static Jedis createYeepayJedis() {
+        Jedis jedis = new Jedis("172.21.1.11",32379);
+//        jedis.auth("123");
+        return jedis;
+    }
+
 }
