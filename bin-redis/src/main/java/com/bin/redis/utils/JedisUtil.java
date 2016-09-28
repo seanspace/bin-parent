@@ -30,9 +30,10 @@ public class JedisUtil {
     }
 
     public static Jedis createYeepayJedis() {
-        Jedis jedis = new Jedis("172.21.1.11",32379);
+//        Jedis jedis = new Jedis("172.21.1.11",32379);
 //        jedis.auth("123");
-        return jedis;
+//        return jedis;
+        return createJedis() ;
     }
 
 }
