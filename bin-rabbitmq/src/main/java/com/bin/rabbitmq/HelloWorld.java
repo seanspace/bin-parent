@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-import static com.bin.rabbitmq.utils.RabbitMQUtil.createMqConnection;
-
 /**
  * RabbitMQ
  * Created by xiaobin on 2016/9/28.
@@ -27,7 +25,7 @@ public class HelloWorld {
             String message = "Hello World!";
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             logger.info(" [x] Sent '" + message + "'");
-
+            RabbitMQUtil.clossSource(connection,channel);
         } catch (IOException e) {
             logger.error("", e);
         }
