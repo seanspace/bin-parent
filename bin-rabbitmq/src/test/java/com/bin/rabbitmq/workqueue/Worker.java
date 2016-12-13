@@ -3,7 +3,6 @@ package com.bin.rabbitmq.workqueue;
 import com.bin.rabbitmq.utils.RabbitMQUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.QueueingConsumer;
 import org.junit.Test;
 import org.slf4j.Logger;

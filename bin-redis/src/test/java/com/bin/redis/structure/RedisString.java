@@ -142,7 +142,6 @@ public class RedisString {
         Long setSucc = jedis.setnx("com.bin.RedisString.testSetex11", "value has be setted");
         //如果设置成功,返回1,如果已经存在不设置,并返回0
         logger.info("是否设置:" + setSucc + ",setex's value is : " + jedis.get("com.bin.RedisString.testSetex"));
-
     }
 
     /**
@@ -150,7 +149,7 @@ public class RedisString {
      * 将 key 中储存的数字值增一
      *
      * 测试:
-     * 1. 字母abc不能进行自增,抛出异常: JedisDataException: ERR value is not an integer or out of range
+     * 1. 字母abc不能进行自增,抛出异常: JedisDataException: `ERR value is not an integer or out of range
      * 2. 自增后,返回值为自增后的值。
      */
     @Test
