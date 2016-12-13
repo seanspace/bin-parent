@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <display-name>enumutils</display-name>
+    <tlib-version>3.0</tlib-version>
+    <short-name>enumutils</short-name>
+    <uri>/enumutils</uri>
+
+    <tag>
+        <description>
+            在页面上显示枚举值的name,或者自定义display
+        </description>
+        <name>write</name>
+        <tag-class>com.bin.tag.EnumTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>
+                EnumTag类中的enumMap的key [status,customerLevel,operateType]; 或者枚举的全类名, 反射获取
+            </description>
+            <name>type</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                枚举值
+            </description>
+            <name>enumValue</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                默认显示的是displayName, 如果有自定义字段, 请填写此值
+            </description>
+            <name>display</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+</taglib>
