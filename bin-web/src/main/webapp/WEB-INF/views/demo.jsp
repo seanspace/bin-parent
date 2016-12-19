@@ -13,6 +13,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<e:write type="com.bin.App" enumValue="${ctxPath}" />
 </body>
 </html>
