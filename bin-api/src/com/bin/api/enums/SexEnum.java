@@ -1,4 +1,4 @@
-package com.bin.enums;
+package com.bin.api.enums;
 
 /**
  * Created by xiaobin on 2016/12/30.
