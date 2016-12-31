@@ -10,9 +10,13 @@
 <%@ include file="/WEB-INF/comm/taglibs.jsp"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Demo</title>
 </head>
 <body>
-<e:write type="com.bin.App" enumValue="${ctxPath}" />
+性别：
+<e:write type="com.bin.api.enums.SexEnum" enumValue="${sex}" />
+</br>
+是否：
+<b:write value="${bool}" />
 </body>
 </html>

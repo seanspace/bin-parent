@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="e" uri="/WEB-INF/tld/enum.tld" %>
+<%@ taglib prefix="b" uri="/WEB-INF/tld/boolean.tld" %>
 <c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"/>
 
 
