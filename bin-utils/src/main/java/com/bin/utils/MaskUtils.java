@@ -23,7 +23,7 @@ public class MaskUtils {
 	 * @param mobile
 	 * @return
 	 */
-	public static String hiddenMobile(String mobile) {
+	public static String maskMobile(String mobile) {
 		if (mobile == null || mobile.length() != 11) {
 			return mobile;
 		}
@@ -36,7 +36,7 @@ public class MaskUtils {
 	 * @param userName
 	 * @return
 	 */
-	public static String hiddenName(String userName) {
+	public static String maskName(String userName) {
 		if (userName == null || userName.length() < 2) {
 			return userName;
 		}
@@ -56,7 +56,7 @@ public class MaskUtils {
 	 * @param identityCode
 	 * @return
 	 */
-	public static String hiddenIdentityCode(String identityCode) {
+	public static String maskIdCardNo(String identityCode) {
 		if (identityCode != null && identityCode.length() > 15) {
 			return identityCode = identityCode.substring(0, 5)
 					+ IDENTITYCODE_MASK
@@ -71,7 +71,7 @@ public class MaskUtils {
 	 * @param bankCardNo
 	 * @return
 	 */
-	public static String hiddenBankCardNO(String bankCardNo) {
+	public static String maskBankCardNo(String bankCardNo) {
 		if (bankCardNo != null && bankCardNo.length() > 10) {
 			int len = bankCardNo.length();
 			StringBuffer slash = new StringBuffer();
@@ -113,26 +113,12 @@ public class MaskUtils {
 		}
 	}
 
-	public static String hiddenAbliddate(String avliddate) {
-		if (!StringUtils.isBlank(avliddate)) {
-			return AVLIDDATE_MASK;
-		}
-		return avliddate;
-	}
-
-	public static String hiddenAbliddate(Date avliddate) {
-		if (avliddate != null) {
-			return AVLIDDATE_MASK;
-		}
-		return null;
-	}
-
 	/**
 	 * 邮箱地址
 	 * @param email
 	 * @return
      */
-	public static String hiddenEmail(String email) {
+	public static String maskEmail(String email) {
 		if (email != null && email.length() > 0 && email.contains("@")) {
 			String hiddenStr = "" ;
 			String[] split = email.split("@");
@@ -148,7 +134,7 @@ public class MaskUtils {
 	/**
 	 * CVV做掩码处理
 	 */
-	public static String hiddenCvv(String cvv) {
+	public static String maskCvv(String cvv) {
 		if (!StringUtils.isBlank(cvv)) {
 			return CVV_MASK;
 		}
@@ -157,20 +143,11 @@ public class MaskUtils {
 	/**
 	 * 支付密码做掩码处理
 	 */
-	public static String hiddenBankPwd(String bankPwd) {
+	public static String maskBankPwd(String bankPwd) {
 		if (!StringUtils.isBlank(bankPwd)) {
 			return BANK_PWD_MASK;
 		}
 		return bankPwd;
-	}
-	/**
-	 * 支付密码做掩码处理
-	 */
-	public static String hiddenVerifyCode(String verifyCode) {
-		if (!StringUtils.isBlank(verifyCode)) {
-			return VERIFYCODE_MASK;
-		}
-		return verifyCode;
 	}
 
 	/**
@@ -179,7 +156,7 @@ public class MaskUtils {
 	 * @param keys
      * @return
      */
-	public static String hiddenJsonArrayString(String jsonStr, String... keys) {
+	public static String maskJsonArrayString(String jsonStr, String... keys) {
 		if (StringUtils.isBlank(jsonStr)) {
 			return jsonStr;
 		}
@@ -192,7 +169,7 @@ public class MaskUtils {
 			jsonArray = JSONArray.parseArray(jsonStr);
 			for (int i = 0; i < jsonArray.size(); i++) {
 				com.alibaba.fastjson.JSONObject o = (com.alibaba.fastjson.JSONObject) jsonArray.get(i);
-				hiddenStr.append(hiddenJsonString(o.toString(),keys ));
+				hiddenStr.append(maskJsonString(o.toString(),keys ));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -207,7 +184,7 @@ public class MaskUtils {
 	 * @param keys
      * @return
      */
-	public static String hiddenJsonString(String jsonStr,String ... keys) {
+	public static String maskJsonString(String jsonStr,String ... keys) {
 		if (StringUtils.isBlank(jsonStr)) {
 			return jsonStr;
 		}
@@ -235,11 +212,21 @@ public class MaskUtils {
 		return hiddenStr;
 	}
 
+	/**
+	 * 是否手机号
+	 * @param o
+	 * @return
+	 */
 	public static boolean isMobileNo(Object o) {
 		String str = String.valueOf(o);
 		return str.matches("(13\\d|14[57]|15[^4,\\D]|17[678]|18\\d)\\d{8}|170[059]\\d{7}");
 	}
 
+	/**
+	 * 是否银行卡号
+	 * @param o
+	 * @return
+	 */
 	public static  boolean isBankCardNo(Object o) {
 		String str = String.valueOf(o);
 		return str.matches("\\d{16}|\\d{19}");
