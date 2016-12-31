@@ -14,6 +14,7 @@
         <module>bin-redis</module>
         <module>bin-config</module>
         <module>bin-rabbitmq</module>
+        <module>bin-api</module>
     </modules>
 
     <properties>
