@@ -16,6 +16,9 @@
         <module>bin-rabbitmq</module>
         <module>bin-api</module>
         <module>bin-mbg</module>
+        <module>bin-utils</module>
+        <module>bin-utils</module>
+        <module>bin-utils</module>
     </modules>
 
     <properties>
@@ -67,6 +70,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.23</version>
         </dependency>
     </dependencies>
 

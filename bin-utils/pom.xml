@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bin-core</artifactId>
+    <artifactId>bin-utils</artifactId>
     <packaging>jar</packaging>
 
-    <name>bin-core</name>
+    <name>bin-utils</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -19,21 +19,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.bin</groupId>
-            <artifactId>bin-mbg</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.bin</groupId>
-            <artifactId>bin-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.bin</groupId>
-            <artifactId>bin-utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-
     </dependencies>
 </project>

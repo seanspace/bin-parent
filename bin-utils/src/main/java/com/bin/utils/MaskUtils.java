@@ -1,12 +1,12 @@
-package com.bin.api.utils;
+package com.bin.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.yeepay.g3.utils.common.json.JSONUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class HiddenCodeUtil {
+public class MaskUtils {
 	private static final String MOBILE_MASK = "*******";
 	private static final String IDENTITYCODE_MASK = "**********";
 	private static final String MASK = "*";
@@ -219,7 +219,8 @@ public class HiddenCodeUtil {
 
 		String hiddenStr;
 		try {
-			Map<String,String> map = JSONUtils.jsonToMap(jsonStr, String.class, String.class);
+
+			Map<String,String> map = JSON.parseObject(jsonStr, Map.class);
 
 			for (String key : set) {
 				String keyValue = map.get(key);
@@ -227,7 +228,7 @@ public class HiddenCodeUtil {
 					map.put(key, hiddenMiddle(keyValue));
 				}
 			}
-			hiddenStr = JSONUtils.toJsonString(map);
+			hiddenStr = JSON.toJSONString(map);
 		} catch (Exception e) {
 			hiddenStr=jsonStr;
 		}

@@ -1,10 +1,8 @@
 package com.bin.core.entity;
 
-import com.yeepay.g3.facade.mer.annotation.*;
-import com.yeepay.g3.facade.mer.utils.HiddenCodeUtil;
-import com.yeepay.g3.utils.common.MaskUtils;
-import com.yeepay.g3.utils.common.json.JSONUtils;
-import org.apache.commons.lang.StringUtils;
+import com.alibaba.fastjson.JSON;
+import com.bin.api.annotations.*;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
 
 import java.io.Serializable;
@@ -30,7 +28,7 @@ public class BaseEntity implements Serializable,Cloneable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return JSONUtils.toJsonString(req);
+        return JSON.toJSONString(req);
     }
 
     /**
