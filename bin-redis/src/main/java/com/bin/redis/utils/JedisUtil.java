@@ -1,6 +1,6 @@
 package com.bin.redis.utils;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import redis.clients.jedis.Jedis;
 
 /**
