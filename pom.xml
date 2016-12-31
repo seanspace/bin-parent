@@ -15,6 +15,7 @@
         <module>bin-config</module>
         <module>bin-rabbitmq</module>
         <module>bin-api</module>
+        <module>bin-mbg</module>
     </modules>
 
     <properties>

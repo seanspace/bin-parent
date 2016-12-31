@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- propertis 配置文件-->
+	<properties resource="mbg/generatorConfig.properties" />
+
+	<!-- MBG根配置 -->
+    <!-- defaultModelType是conditional则会将blob类型的column分离到子类中 -->
+	<context id="MBG" targetRuntime="MyBatis3" defaultModelType="flat">
+
+		<!-- 生成hashCode()和equals()方法的插件 -->
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+		<!-- bean类序列化插件 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+		<!-- sql like 查询是否区分大小写插件 -->
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+
+		<!-- 生成toString() 方法插件 -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<!-- 重命名Bean查询条件类的类名，默认命名Example -->
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Param" />
+		</plugin>
+
+		<!-- *******************************下面的插件都是自定义插件******************************* -->
+		<!-- 重命名Bean查询条件类的类名，默认命名Example -->
+		<plugin type="mybatis.generator.plugin.rename.RenameExampleClassAndMethodsPlugin">
+			<property name="classMethodSearchString" value="Example" />
+			<property name="classMethodReplaceString" value="Filter" />
+			<property name="parameterSearchString" value="example" />
+			<property name="parameterReplaceString" value="filter" />
+		</plugin>
+
+		<!-- 单独生成一个DAO的JAVA文件和XML文件，存放自定义SQL，将自动生成和自定义分开 -->
+		<plugin type="mybatis.generator.plugin.DAOPlugin" >
+			<property name="typeName" value="Dao"/>
+            <property name="annotationClass" value="org.springframework.stereotype.Repository" />
+            <property name="annotationString" value="@Repository" />
+			<property name="overwrite" value="false" />
+		</plugin>
+
+		<!-- *******************************上面的插件都是自定义插件******************************* -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库连接信息 -->
+		<jdbcConnection driverClass="${driver}" connectionURL="${url}"
+			userId="${user}" password="${password}">
+		</jdbcConnection>
+
+		<!-- Java 生成的bean中字段类型配置 -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- java 生成Bean类的配置 -->
+		<javaModelGenerator targetPackage="${modelPackage}"
+			targetProject="${javabase}">
+			<property name="enableSubPackages" value="true" />
+            <property name="overwrite" value="true" />
+            <!--<property name="rootClass" value="com.yeepay.g3.utils.persistence.EntityVersion&lt;Long&gt;" />-->
+		</javaModelGenerator>
+
+		<!-- java 生成xml文件的配置 -->
+		<sqlMapGenerator targetProject="${resbase}" targetPackage="${sqlMapPackage}">
+			<property name="enableSubPackages" value="true" />
+            <property name="overwrite" value="true" />
+		</sqlMapGenerator>
+
+		<!-- java 生成 mapper类的配置 -->
+		<javaClientGenerator type="XMLMAPPER" targetProject="${javabase}" targetPackage="${javaClientPackage}" >
+			<property name="enableSubPackages" value="true" />
+            <property name="overwrite" value="true" />
+		</javaClientGenerator>
+
+		<!-- 配置需要自动生成的表，可配置多个table标签 -->
+		<table tableName="TBL_USER" domainObjectName="QrRelation">
+			<generatedKey column="ID" sqlStatement="VALUES NEXTVAL FOR TBL_USER_SEQ" identity="false"/>
+			<columnOverride column="SEX" javaType="com.bin.api.enums.SexEnum" />
+		</table>
+
+	</context>
+</generatorConfiguration>
