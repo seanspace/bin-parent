@@ -6,15 +6,16 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
+/**
+ * 掩码工具类
+ */
 public class MaskUtils {
 	private static final String MOBILE_MASK = "*******";
 	private static final String IDENTITYCODE_MASK = "**********";
 	private static final String MASK = "*";
 	private static final String BANK_PWD_MASK = "******";
 	private static final String CVV_MASK = "***";
-	private static final String AVLIDDATE_MASK = "****";
-	private static final String VERIFYCODE_MASK = "******";
-	
+
 	
 
 	/**

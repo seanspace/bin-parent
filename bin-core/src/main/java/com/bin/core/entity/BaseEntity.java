@@ -2,6 +2,7 @@ package com.bin.core.entity;
 
 import com.alibaba.fastjson.JSON;
 import com.bin.api.annotations.*;
+import com.bin.utils.MaskUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
 
@@ -10,7 +11,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @Description:
+ * @Description: 实体基类
  * @Author: xiaobin.liu
  * @Date: 16/12/13
  * @Time: 上午11:07
@@ -64,7 +65,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 Phone attribute = field.getAnnotation(Phone.class);
                 String phone = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(phone)) {
-                    String str = MaskUtils.maskCellphone(phone);
+                    String str = MaskUtils.maskMobile(phone);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -73,7 +74,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 IdCardNo attribute = field.getAnnotation(IdCardNo.class);
                 String card = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(card)) {
-                    String str = MaskUtils.maskIDCardNo(card);
+                    String str = MaskUtils.maskIdCardNo(card);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -82,7 +83,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 UserName attribute = field.getAnnotation(UserName.class);
                 String userName = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenName(userName);
+                    String str = MaskUtils.maskName(userName);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -91,7 +92,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 Name attribute = field.getAnnotation(Name.class);
                 String userName = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenName(userName);
+                    String str = MaskUtils.maskName(userName);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -100,7 +101,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 Email attribute = field.getAnnotation(Email.class);
                 String userName = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenEmail(userName);
+                    String str = MaskUtils.maskEmail(userName);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -109,7 +110,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 Passport attribute = field.getAnnotation(Passport.class);
                 String userName = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenMiddle(userName);
+                    String str = MaskUtils.hiddenMiddle(userName);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -118,7 +119,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 Password attribute = field.getAnnotation(Password.class);
                 String userName = (String) req.invokeGet(field.getName(),attribute.encryption());
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenBankPwd(userName);
+                    String str = MaskUtils.maskBankPwd(userName);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -130,7 +131,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 String[] keys = jsonAnno.maskKey();
                 ;
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenJsonString(userName, keys);
+                    String str = MaskUtils.maskJsonString(userName, keys);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
@@ -141,7 +142,7 @@ public class BaseEntity implements Serializable,Cloneable {
                 JsonArray jsonAnno = field.getAnnotation(JsonArray.class);
                 String[] keys = jsonAnno.maskKey();
                 if (StringUtils.isNotEmpty(userName)) {
-                    String str = HiddenCodeUtil.hiddenJsonArrayString(userName, keys);
+                    String str = MaskUtils.maskJsonArrayString(userName, keys);
                     req.invokeSet(field.getName(), str);
                 } else {
                     req.invokeSet(field.getName(), "null");
