@@ -1,4 +1,4 @@
-package com.bin.utils;
+package com.bin.utils.json;
 
 /**
  * Json工具类

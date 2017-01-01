@@ -1,4 +1,4 @@
-package com.bin.utils;
+package com.bin.utils.mask;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
