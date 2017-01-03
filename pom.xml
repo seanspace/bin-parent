@@ -17,8 +17,6 @@
         <module>bin-api</module>
         <module>bin-mbg</module>
         <module>bin-utils</module>
-        <module>bin-utils</module>
-        <module>bin-utils</module>
     </modules>
 
     <properties>
@@ -75,7 +73,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.23</version>
+            <version>1.2.21</version>
         </dependency>
     </dependencies>
 

@@ -21,14 +21,16 @@ public class MaskUtils {
 	/**
 	 * 手机号掩码处理,保留后四位
 	 * 
-	 * @param mobile
+	 * @param cellphoneNo
 	 * @return
 	 */
-	public static String maskMobile(String mobile) {
-		if (mobile == null || mobile.length() != 11) {
-			return mobile;
+	public static String maskMobile(String cellphoneNo) {
+		if(cellphoneNo==null || cellphoneNo.trim().length()!=11){
+			return cellphoneNo;
 		}
-		return mobile.replaceFirst(mobile.substring(0, 7), MOBILE_MASK);
+		return new StringBuilder().append(cellphoneNo.substring(0,3))
+				.append("****").append(cellphoneNo
+						.substring(cellphoneNo.length() - 4)).toString();
 	}
 
 	/**
@@ -54,16 +56,31 @@ public class MaskUtils {
 	/**
 	 * 身份证号掩码处理，6-15位做掩码处理
 	 * 
-	 * @param identityCode
+	 * @param idCardNo
 	 * @return
 	 */
-	public static String maskIdCardNo(String identityCode) {
-		if (identityCode != null && identityCode.length() > 15) {
-			return identityCode = identityCode.substring(0, 5)
-					+ IDENTITYCODE_MASK
-					+ identityCode.substring(15, identityCode.length());
+	public static String maskIdCardNo(String idCardNo) {
+		return maskCardNo(idCardNo);
+	}
+
+	/**
+	 * 隐藏卡号信息
+	 * @param cardNo
+	 * @return
+	 */
+	private static String maskCardNo(String cardNo){
+		if(cardNo==null || cardNo.trim().length()<=8){
+			return cardNo;
 		}
-		return identityCode;
+		cardNo = cardNo.trim();
+		int length = cardNo.length();
+		String firstFourNo = cardNo.substring(0,4);
+		String lastFourNo = cardNo.substring(length-4);
+		String mask = "";
+		for(int i=0; i<length-8; i++){
+			mask +="*";
+		}
+		return firstFourNo + mask +lastFourNo;
 	}
 
 	/**
@@ -73,16 +90,7 @@ public class MaskUtils {
 	 * @return
 	 */
 	public static String maskBankCardNo(String bankCardNo) {
-		if (bankCardNo != null && bankCardNo.length() > 10) {
-			int len = bankCardNo.length();
-			StringBuffer slash = new StringBuffer();
-			for (int i = 0; i != len - 10; i++) {
-				slash.append(MASK);
-			}
-			return bankCardNo.substring(0, 6) + slash
-					+ bankCardNo.substring(len - 4);
-		}
-		return bankCardNo;
+		return maskCardNo(bankCardNo);
 	}
 
 	/**

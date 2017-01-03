@@ -2,7 +2,7 @@ package com.bin.core.entity;
 
 import com.alibaba.fastjson.JSON;
 import com.bin.api.annotations.*;
-import com.bin.utils.MaskUtils;
+import com.bin.utils.mask.MaskUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
 
