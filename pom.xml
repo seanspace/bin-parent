@@ -17,6 +17,7 @@
         <module>bin-api</module>
         <module>bin-mbg</module>
         <module>bin-utils</module>
+        <module>bin-hessian</module>
     </modules>
 
     <properties>
@@ -46,17 +47,6 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- Spring依赖： 添加SpringMVC之后，spring其它的依赖自动添加 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>4.1.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.1.7.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

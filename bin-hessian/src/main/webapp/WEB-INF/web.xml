@@ -5,34 +5,42 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:SprintContext/applicationContext.xml,classpath*:SprintContext/hessian-client.xml</param-value>
+    <param-value>classpath*:SprintContext/applicationContext.xml</param-value>
   </context-param>
 
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
-  <!-- HelloWorld配置DispatcherServlet -->
+  <!-- Hessian与Spring整合时在web.xml上的配置 -->
   <servlet>
-    <servlet-name>springDispatcherServlet</servlet-name>
+    <servlet-name>HessionRemoteServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!-- 配置SpringMVC配置文件的位置和名称 -->
-    <!--
-        实际上也可以不通过contextConfigLocation来配置SpringMVC的配置文件，而使用默认。
-        默认的配置文件为：/WEB-INF/<servlet-name>-servlet.xml ;eg:springDispatcherServlet-servlet.xml
-     -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:SpringContext/Spring-mvc.xml</param-value>
+      <param-value>classpath:Spring-Context/hessian-servlet.xml</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>springDispatcherServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <servlet-name>HessionRemoteServlet</servlet-name>
+    <url-pattern>/remote/api/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- 普通发布hessian方法 -->
+  <!-- Hessian在web.xml上的配置 -->
+  <servlet>
+    <servlet-name>HessianServlet</servlet-name>
+    <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+    <init-param>
+      <param-name>service-class</param-name>
+      <param-value>com.bin.hessian.facade.impl.UserFacadeImpl</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HessianServlet</servlet-name>
+    <url-pattern>/api/user</url-pattern>
   </servlet-mapping>
 
   <!-- Spring字符集过滤器 -->

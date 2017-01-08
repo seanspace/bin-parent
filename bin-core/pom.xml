@@ -15,6 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-version>4.1.7.RELEASE</spring-version>
     </properties>
 
     <dependencies>
@@ -34,6 +35,24 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+
+        <!-- Spring依赖： 添加SpringMVC之后，spring其它的依赖自动添加 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
 
     </dependencies>
 </project>
