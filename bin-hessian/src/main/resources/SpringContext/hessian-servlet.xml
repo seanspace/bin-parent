@@ -8,8 +8,6 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 <beans>
-	<bean id="userFacade" class="com.bin.core.facade.impl.UserFacadeImpl" />
-
 	<!--发布hessian接口-->
 	<bean name="/userFacade"
 		  class="org.springframework.remoting.caucho.HessianServiceExporter">

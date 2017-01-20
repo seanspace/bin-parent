@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by xiaobin on 2017/1/20.
  */
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
@@ -17,5 +17,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(int id) {
         return userMapper.findById(id);
+    }
+
+    @Override
+    public void createOrUpdate(User user) {
+        if (user.getId() != 0) {
+            userMapper.update(user);
+        } else {
+            userMapper.save(user);
+        }
     }
 }

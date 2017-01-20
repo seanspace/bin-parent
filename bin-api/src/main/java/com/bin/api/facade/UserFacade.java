@@ -8,4 +8,6 @@ import com.bin.api.dto.UserDto;
 public interface UserFacade {
 
     public UserDto login(String userName,String password);
+
+    void registUser(UserDto userDto);
 }

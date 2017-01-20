@@ -6,6 +6,7 @@ package com.bin.api.dto;
 public class UserDto extends BaseDto {
     private String name;
     private int age;
+    private String Password;
 
     public String getName() {
         return name;
@@ -21,5 +22,13 @@ public class UserDto extends BaseDto {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }

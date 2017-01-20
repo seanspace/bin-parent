@@ -7,4 +7,6 @@ import com.bin.core.entity.User;
  */
 public interface UserService {
     User findById(int id);
+
+    void createOrUpdate(User user);
 }

@@ -2,9 +2,11 @@ package com.bin.core.facade.impl;
 
 import com.bin.api.dto.UserDto;
 import com.bin.api.facade.UserFacade;
+import com.bin.core.entity.User;
 import com.bin.core.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,5 +30,13 @@ public class UserFacadeImpl implements UserFacade {
         userService.findById(1);
 
         return userDto;
+    }
+
+
+    @Override
+    public void registUser(UserDto userDto) {
+        User user = new User();
+        BeanUtils.copyProperties(userDto,user);
+        userService.createOrUpdate(user);
     }
 }
