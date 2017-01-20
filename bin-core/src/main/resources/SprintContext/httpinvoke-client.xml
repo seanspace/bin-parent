@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="userFacade1"
+          class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="http://localhost:9111/bin-hessian/remote/httpinvoke/userFacade" />
+        <!-- 服务器IP地址：端口号/项目名称/（Server端web.xml中配置的<url-pattern>入口)/（服务器端配置的bean的name属性<bean name="/httpinvokeService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">......</bean>）-->
+        <property name="serviceInterface" value="com.bin.api.facade.UserFacade"/>
+    </bean>
+
+</beans>

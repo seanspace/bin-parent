@@ -14,6 +14,21 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
+  <!--Spring整合httpInvoke-->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-httpinvoke.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/remote/httpx/*</url-pattern>
+  </servlet-mapping>
+
   <!-- Hessian与Spring整合时在web.xml上的配置 -->
   <servlet>
     <servlet-name>HessionRemoteServlet</servlet-name>

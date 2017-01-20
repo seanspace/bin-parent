@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@Repository("userMapper")
 public interface UserMapper {
 	void save(User user);
 	void update(User user);

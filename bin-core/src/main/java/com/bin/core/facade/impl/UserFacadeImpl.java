@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * http://localhost:8081/bin-hessian/remote/api/userFacade
  * Created by xiaobin on 2017/1/8.
  */
-@Component
+@Component("userFacade")
 public class UserFacadeImpl implements UserFacade {
     private static final Logger logger = LoggerFactory.getLogger(UserFacadeImpl.class);
     @Autowired

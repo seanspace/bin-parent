@@ -36,7 +36,7 @@
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.bin.core.mapper"/>
-		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+		<!--<property name="annotationClass" value="org.springframework.stereotype.Repository"/>-->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 	<!-- MyBatis 配置 end -->
