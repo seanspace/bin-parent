@@ -1,14 +1,17 @@
-package com.bin.hessian.facade.impl;
+package com.bin.core.facade.impl;
 
 import com.bin.api.dto.UserDto;
+import com.bin.api.facade.UserFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * http://localhost:8081/bin-hessian/remote/api/userFacade
  * Created by xiaobin on 2017/1/8.
  */
-public class UserFacadeImpl implements com.bin.api.facade.UserFacade {
+@Component
+public class UserFacadeImpl implements UserFacade {
     private static final Logger logger = LoggerFactory.getLogger(UserFacadeImpl.class);
 
 
