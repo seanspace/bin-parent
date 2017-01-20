@@ -35,7 +35,7 @@
     <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
     <init-param>
       <param-name>service-class</param-name>
-      <param-value>com.bin.hessian.facade.impl.UserFacadeImpl</param-value>
+      <param-value>com.bin.core.facade.impl.UserFacadeImpl</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
