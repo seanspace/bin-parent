@@ -6,7 +6,7 @@
 
 	<!-- 1.配置数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="url" value="jdbc:mysql://localhost:3306/mybatis"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/bin-web"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -36,7 +36,7 @@
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.bin.core.mapper"/>
-		<!--<property name="annotationClass" value="org.springframework.stereotype.Repository"/>-->
+		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 	<!-- MyBatis 配置 end -->

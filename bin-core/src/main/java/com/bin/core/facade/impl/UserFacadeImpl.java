@@ -21,6 +21,7 @@ public class UserFacadeImpl implements UserFacade {
 
     @Override
     public UserDto login(String userName, String password) {
+        logger.info("login");
         UserDto userDto = new UserDto();
         userDto.setName("zhangsan");
         userDto.setAge(19);

@@ -46,6 +46,7 @@ public class FacadeLoggingAspect {
 					SYSTEM_NAME,methodName);
 			result = joinPoint.proceed() ;
 		} catch (Throwable e) {
+			logger.error("异常：",e);
 			throw new RuntimeException(e) ;
 		}
 		String time = (System.currentTimeMillis() - startTime) + "ms";

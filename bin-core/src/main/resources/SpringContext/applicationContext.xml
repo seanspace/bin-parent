@@ -18,6 +18,6 @@
 	</context:component-scan>
 
 	<import resource="classpath*:/SpringContext/spring-aop.xml" />
-	<import resource="classpath*:/SpringContext/spring-datasource.xml" ></import>
+	<import resource="classpath*:/SpringContext/spring-datasource.xml" />
 
 </beans>

@@ -13,6 +13,11 @@
         <appender-ref ref="CONSOLE" />
     </logger>
 
+    <!--<logger name="com.yeepay.g3.ymf.boss">-->
+        <!--<level value="info" />-->
+        <!--<appender-ref ref="CONSOLE" />-->
+    <!--</logger>-->
+
     <logger name="java.sql" additivity="false">
         <level value="debug" />
         <appender-ref ref="CONSOLE" />

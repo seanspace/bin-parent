@@ -8,7 +8,7 @@
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:SprintContext/applicationContext.xml,classpath*:SprintContext/hessian-client.xml</param-value>
+    <param-value>classpath*:SpringContext/applicationContext.xml,classpath*:SpringContext/hessian-client.xml</param-value>
   </context-param>
 
   <listener>
