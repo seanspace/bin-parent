@@ -12,7 +12,7 @@ public class BaseTest {
 
     @BeforeClass
     public static void beforeClass() {
-        applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        applicationContext = new ClassPathXmlApplicationContext("/SpringContext/applicationContext.xml");
     }
 
 

@@ -2,8 +2,10 @@ package com.bin.core.facade.impl;
 
 import com.bin.api.dto.UserDto;
 import com.bin.api.facade.UserFacade;
+import com.bin.core.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,14 +15,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserFacadeImpl implements UserFacade {
     private static final Logger logger = LoggerFactory.getLogger(UserFacadeImpl.class);
+    @Autowired
+    private UserService userService;
 
 
     @Override
     public UserDto login(String userName, String password) {
-        logger.info("收到请求：{}，{}",userName,password);
         UserDto userDto = new UserDto();
         userDto.setName("zhangsan");
         userDto.setAge(19);
+        userService.findById(1);
+
         return userDto;
     }
 }
