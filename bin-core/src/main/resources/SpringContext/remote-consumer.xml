@@ -11,4 +11,7 @@
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="dubboDemoFacade" interface="com.bin.api.facade.DubboDemoFacade" />
+
+    <!--关闭所有服务的启动时检查-->
+    <dubbo:consumer check="false" />
 </beans>
